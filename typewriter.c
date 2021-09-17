@@ -4,12 +4,16 @@
 #include <unistd.h>
 #include <linux/input.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 int main(int argc, char **argv) {
     struct input_event event;
 
     //Find event name in /proc/bus/input/devices
     int keyboard = open("/dev/input/event18", O_RDONLY);
+    if(keyboard == -1) {
+        fprintf(stderr, "Could not open keyboard");
+    }
 
     while(1) {
         read(keyboard, &event, sizeof(event));
