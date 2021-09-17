@@ -7,7 +7,9 @@
 
 int main(int argc, char **argv) {
     struct input_event event;
-    int keyboard = open("/dev/input/event5", O_RDONLY);
+
+    //Find event name in /proc/bus/input/devices
+    int keyboard = open("/dev/input/event18", O_RDONLY);
 
     while(1) {
         read(keyboard, &event, sizeof(event));
