@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
     while(1) {
         read(keyboard, &event, sizeof(event));
 
-        if(event.code == KEY_ENTER) {
+        if(event.code == KEY_ENTER && event.value == 1) {
             system("mpg123 /etc/typewriter/ding.mp3 &");
         }
 
