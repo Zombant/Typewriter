@@ -17,6 +17,10 @@ The `-b` flag allows the program to run after the terminal is closed
 ```bash
 sudo -b typewriter
 ```
+To specify a device:
+```bash
+sudo -b typewriter /dev/input/event2
+```
 
 ## Stopping the program
 Run the following at the command line:

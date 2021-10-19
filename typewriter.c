@@ -6,15 +6,23 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-#define DEVICE "/dev/input/event18"
+#define DEVICE "/dev/input/event1"
 
 int main(int argc, char **argv) {
     struct input_event event;
 
     //Find event name in /proc/bus/input/devices
-    int keyboard = open(DEVICE, O_RDONLY);
+
+    int keyboard;
+    if(argc == 2) {
+        keyboard = open(argv[1], O_RDONLY);
+    } else {
+        keyboard = open(DEVICE, O_RDONLY);
+    }
+
     if(keyboard == -1) {
-        fprintf(stderr, "Could not open keyboard");
+        fprintf(stderr, "Could not open keyboard\n");
+        exit(1);
     }
 
     while(1) {
