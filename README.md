@@ -21,7 +21,8 @@ To specify a device:
 ```bash
 sudo -b typewriter /dev/input/event2
 ```
-Note that this may not work if you don't have access to /dev/input. This is why it is run with `sudo`. However, the root user cannot produce sound with pulseaudio. See the below two workarounds.
+Note that this may not work if you don't have access to /dev/input. This is why it is run with `sudo`. However, the root user cannot produce sound with pulseaudio. 
+See the two workarounds below.
 
 ## Stopping the program
 Run the following at the command line:
@@ -36,6 +37,7 @@ If the sound effects do not play with PulseAudio, try following the directions o
 
 ## Try giving the user permissions to the event file
 __This is a bad idea so don't do it__
+
 As root, run (replacing event3 with the event for your device)
 ```bash
 chmod o+r /dev/input/event3
